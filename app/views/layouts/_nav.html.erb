@@ -1,7 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand me-5" href="/">Avo Admin</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler" 
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -14,6 +22,15 @@
           <a class="nav-link" href="#">Features</a>
         </li>
       </ul>
+    </div>
+    <div class="float-end me-3">
+      <% if user_signed_in? %>
+        <%= link_to "Account", edit_user_registration_path, class: "btn btn-primary me-2" %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary me-2" %>
+        <%= link_to "Login", new_user_session_path, class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
 </nav>
