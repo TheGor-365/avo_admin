@@ -10,4 +10,10 @@ class PostResource < Avo::BaseResource
   field :title, as: :text
   field :body, as: :textarea
   # add fields here
+
+  grid do
+    title :title, as: :text
+    body :body, as: :text
+    cover :image, as: :file, link_to_resource: true
+  end
 end
